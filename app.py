@@ -318,7 +318,7 @@ divisions = st.sidebar.multiselect(
 
 states = st.sidebar.multiselect(
     "📍 State / Province Optional",
-    sorted(df["State/Province"].dropna().unique())
+    sorted(df["State/Province"].dropna().unique()),
     default=sorted(df["State / Province Optional"].dropna().unique())
 )
 
