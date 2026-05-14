@@ -287,16 +287,17 @@ min_date = df["Order Date"].min().date()
 max_date = df["Order Date"].max().date()
 
 date_range = st.sidebar.date_input(
-    "📅 Order Date Range",
+    "📅 Order Date Range"
     value=(min_date, max_date),
     min_value=min_date,
     max_value=max_date
 )
 
-if isinstance(date_range, tuple) and len(date_range) == 2:
-    start_date, end_date = date_range
-else:
-    start_date, end_date = min_date, max_date
+date_range = st.sidebar.date_input(
+    "Select Date Range",
+    [df['Order Date'].min(), df['Order Date'].max()]
+)
+
 
 ship_modes = st.sidebar.multiselect(
     "🚚 Ship Mode",
