@@ -318,7 +318,8 @@ divisions = st.sidebar.multiselect(
 
 states = st.sidebar.multiselect(
     "📍 State / Province Optional",
-    sorted(df["State/Province"].dropna().unique())
+    sorted(df["State/Province"].dropna().unique()), 
+     default=sorted(df["State/Province"].dropna().unique())
 )
 
 delay_threshold = st.sidebar.slider(
@@ -816,3 +817,11 @@ with tab6:
 
     st.markdown("#### Factory Performance Table")
     st.dataframe(factory_stats, use_container_width=True, hide_index=True)
+
+# st.header("Factory Locations")
+
+# factory_df = pd.read_csv("factories.csv")
+
+# st.map(factory_df)
+
+# st.success("Dashboard Loaded Successfully")
